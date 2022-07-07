@@ -39,7 +39,7 @@
 .App {
   font-family: 'Comfortaa', cursive;
   width: 100vw;
-  height: 100vh;
+  height: auto;
   
 }
 #light {
@@ -48,7 +48,7 @@
 }
 
 #dark {
-  background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
 }
 body {
   margin: 0;
@@ -71,5 +71,8 @@ body {
 }
 
 #dark .switch label {
+  color: white;
+}
+#dark .table{
   color: white;
 }
