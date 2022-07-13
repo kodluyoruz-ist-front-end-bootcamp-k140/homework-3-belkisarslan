@@ -9,12 +9,14 @@ export const ThemeContext = createContext(null);
 
 function App() {
   const [theme, setTheme] = useState("dark");
-  const [activeTab, setActiveTab] = useState("fn")
-  const [active, setActive] = useState("post-fn")
+  const [activeTab, setActiveTab] = useState("todo-cls")
 
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
   };
+
+
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
@@ -23,22 +25,26 @@ function App() {
           <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
         </div>
         <div className='container'>
-     <div className="btn-group tabs" role="group" ariaLabel="Basic example">
-       <Button onClick={() => setActiveTab("cls")} className={activeTab}>Todos Class Component</Button>
-       <Button onClick={() => setActiveTab("fn")} className={activeTab}>Todos Fn Component</Button>
-       <Button onClick={() => setActive("post-cls")} className={active}>Post Class Component</Button>
-       <Button onClick={() => setActive("post-fn")} className={active}>Post Fn Component</Button>
-     </div>
-     <br />
-     
-     { activeTab === "fn" ? <TodoFnComponent /> : <TodoClsComponent />}
-     { active === "post-fn" ? <PostFnComponent /> : <PostClsComponent />}
-    
-   </div>
-  </div>
-      
+          <div className="btn-group tabs" role="group" ariaLabel="Basic example">
+            <Button onClick={() => setActiveTab("todo-cls")} className={activeTab === "todo-cls" ? "btn btn-primary" : "btn btn-default"}>Todos Class Component</Button>
+            <Button onClick={() => setActiveTab("todo-fn")} className={activeTab === "todo-fn" ? "btn btn-primary" : "btn btn-default"}>Todos Fn Component</Button>
+            <Button onClick={() => setActiveTab("post-cls")} className={activeTab === "post-cls" ? "btn btn-primary" : "btn btn-default"}>Post Class Component</Button>
+            <Button onClick={() => setActiveTab("post-fn")} className={activeTab === "post-fn" ? "btn btn-primary" : "btn btn-default"}>Post Fn Component</Button>
+          </div>
+          <br />
+
+          {activeTab === "todo-cls" ? <TodoClsComponent /> : null}
+          {activeTab === "todo-fn" ? <TodoFnComponent /> : null}
+          {activeTab === "post-cls" ? <PostClsComponent /> : null}
+          {activeTab === "post-fn" ? <PostFnComponent /> : null}
+
+
+
+        </div>
+      </div>
+
     </ThemeContext.Provider>
-  
+
   );
 }
 
