@@ -3,12 +3,13 @@ import { createContext, useState } from "react";
 import ReactSwitch from "react-switch";
 import { TodoFnComponent, TodoClsComponent } from './components/todos';
 import { PostFnComponent, PostClsComponent } from './components/post';
-
 import { Button } from './components/button';
+
 export const ThemeContext = createContext(null);
 
 function App() {
-  const [theme, setTheme] = useState("dark");
+  //to do class ve açık renk tema ile başlangıç
+  const [theme, setTheme] = useState("light");
   const [activeTab, setActiveTab] = useState("todo-cls")
 
   const toggleTheme = () => {
@@ -32,14 +33,11 @@ function App() {
             <Button onClick={() => setActiveTab("post-fn")} className={activeTab === "post-fn" ? "btn btn-primary" : "btn btn-default"}>Post Fn Component</Button>
           </div>
           <br />
-
+          {/* Çoklu koşul render işlemi */}
           {activeTab === "todo-cls" ? <TodoClsComponent /> : null}
           {activeTab === "todo-fn" ? <TodoFnComponent /> : null}
           {activeTab === "post-cls" ? <PostClsComponent /> : null}
           {activeTab === "post-fn" ? <PostFnComponent /> : null}
-
-
-
         </div>
       </div>
 
