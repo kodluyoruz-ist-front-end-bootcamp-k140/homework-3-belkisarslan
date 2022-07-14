@@ -1,5 +1,9 @@
 # Homework 3
 
+
+
+https://user-images.githubusercontent.com/97946709/178965519-e9eff171-5b95-44f1-897e-ba948ea61d63.mp4
+
 Öğrendiğiniz React kavramlarını kullanarak, aşağıdaki görevi yapmanız bekleniyor.
 
 Ödevin son teslim tarihi (**Deadline**): **08.07.2022 23:00**
